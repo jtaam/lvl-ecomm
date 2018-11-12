@@ -16,7 +16,7 @@
                                 <a href="{{url('/')}}" class="dropdown-toggle" data-toggle="dropdown">My Site <b
                                             class="caret"></b></a>
                                 <ul class="dropdown-menu animated fadeInUp">
-                                    <li><a href="{{url('/')}}">Front End</a></li>
+                                    <li><a href="{{url('/')}}" target="_blank">Front End</a></li>
                                     <li><a href="{{url('/logout')}}">Logout</a></li>
                                 </ul>
                             </li>
