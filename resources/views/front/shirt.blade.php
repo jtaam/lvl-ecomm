@@ -3,7 +3,7 @@
 @section('title','Shirt')
 
 @section('content')
-    <!-- products listing -->
+    <!-- product listing -->
     <!-- Latest SHirts -->
     <div class="row">
         <div class="small-5 small-offset-1 columns">

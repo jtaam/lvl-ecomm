@@ -7,7 +7,7 @@
 @endpush
 
 @section('content')
-    <!-- products listing -->
+    <!-- product listing -->
     <!-- Latest SHirts -->
     <div class="row">
         <div class="small-3 columns">
