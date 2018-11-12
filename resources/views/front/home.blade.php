@@ -41,7 +41,7 @@
                         <img src="http://i.imgur.com/Mcw06Yt.png"/>
                     </a>
                 </div>
-                <a href="#">
+                <a href="{{route('shirt')}}">
                     <h3>
                         Kickin with Kraken Tee
                     </h3>
