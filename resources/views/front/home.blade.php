@@ -1,6 +1,6 @@
-@extends('layout.main')
+@extends('layouts.main')
 
-@section('title','')
+@section('title','Home')
 
 @push('css')
 
@@ -36,7 +36,7 @@
                 <div class="small-3 columns">
                     <div class="item-wrapper">
                         <div class="img-wrapper">
-                            <a class="button expanded add-to-cart">
+                            <a href="{{route('cart.edit', $shirt->id)}}" class="button expanded add-to-cart">
                                 Add to Cart
                             </a>
                             <a href="#">

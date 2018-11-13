@@ -10,6 +10,9 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::get('/home', 'HomeController@index');
 
+// cart
+Route::resource('/cart','CartController');
+
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     // dashboard
     Route::get('/', function () {
