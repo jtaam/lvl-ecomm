@@ -8,13 +8,31 @@
 
 @section('content')
     <h3>Products</h3>
-    <ul>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Size</th>
+                <th>Price($)</th>
+            </tr>
+        </thead>
+        <tbody>
         @forelse($products as $product)
-            <li><h4>Name of Product:{{$product->name}}</h4></li>
+            <tr>
+                <td>{{$product->id}}</td>
+                <td>{{$product->name}}</td>
+                <td>{{$product->size}}</td>
+                <td>{{$product->price}}</td>
+            </tr>
         @empty
             <h3>No products</h3>
         @endforelse
-    </ul>
+
+        </tbody>
+
+    </table>
+
 @endsection
 
 @push('js')
