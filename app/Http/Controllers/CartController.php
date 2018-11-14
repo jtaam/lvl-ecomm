@@ -76,7 +76,7 @@ class CartController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Cart::update($id, $request->quantity);
+        Cart::update($id,['qty'=>$request->qty,"options"=>['size'=>$request->size]]);
 
         return back();
     }

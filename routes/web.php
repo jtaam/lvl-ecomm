@@ -13,7 +13,7 @@ Route::get('/home', 'HomeController@index');
 // cart
 Route::resource('/cart','CartController');
 
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin']], function () {
     // dashboard
     Route::get('/', function () {
         return view('admin.index');
@@ -23,3 +23,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     // category
     Route::resource('category', 'CategoriesController');
 });
+
+Route::get('checkout','CheckoutController@step1')->name('checkoutStep1');
+Route::get('shipping-info','CheckoutController@shipping')->name('checkout.shipping');
