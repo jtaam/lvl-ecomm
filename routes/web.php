@@ -12,6 +12,7 @@ Route::get('/home', 'HomeController@index');
 
 // cart
 Route::resource('/cart','CartController');
+Route::get('/cart/add-item/{id}','CartController@addItem')->name('cart.addItem');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin']], function () {
     // dashboard
@@ -23,6 +24,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin']], function (
     // category
     Route::resource('category', 'CategoriesController');
 });
+// address
+Route::resource('address','AddressController');
 
 Route::get('checkout','CheckoutController@step1')->name('checkoutStep1');
 Route::get('shipping-info','CheckoutController@shipping')->name('checkout.shipping');

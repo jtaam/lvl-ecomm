@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
-
-use Gloudemans\Shoppingcart\Facades\Cart;
+use App\Address;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class CartController extends Controller
+class AddressController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,7 @@ class CartController extends Controller
      */
     public function index()
     {
-        $cartItems = Cart::content();
-        return view('cart.index', compact('cartItems'));
+        //
     }
 
     /**
@@ -27,24 +25,34 @@ class CartController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'addressline'=>'required',
+            'city'=>'required',
+            'state'=>'required',
+            'zip'=>'required|integer',
+            'phone'=>'required|integer',
+        ]);
+
+        Auth::user()->address()->create($request->all());
+
+        return redirect()->route('checkout.payment');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -55,45 +63,34 @@ class CartController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-
-    }
-
-    public function addItem($id){
-        $product = Product::find($id);
-
-        Cart::add($id, $product->name, 1, $product->price, ['size' => 'medium']);
-
-        return back();
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        Cart::update($id,['qty'=>$request->qty,"options"=>['size'=>$request->size]]);
-
-        return back();
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        Cart::remove($id);
-        return back();
+        //
     }
 }

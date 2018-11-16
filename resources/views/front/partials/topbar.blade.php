@@ -11,6 +11,11 @@
     <div class="top-bar-right">
         <ol class="menu">
             <li>
+                <a href="{{route('login')}}">
+                    LOGIN
+                </a>
+            </li>
+            <li>
                 <a href="{{route('shirts')}}">
                     SHIRTS
                 </a>
