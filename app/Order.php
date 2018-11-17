@@ -14,6 +14,10 @@ class Order extends Model
         return $this->belongsToMany(Product::class)->withPivot('qty','total');
     }
 
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
     public static function createOrder(){
         $user = Auth::user();
         $order = $user->orders()->create([

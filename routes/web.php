@@ -23,6 +23,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin']], function (
     Route::resource('product', 'ProductsController');
     // category
     Route::resource('category', 'CategoriesController');
+    // orders
+    Route::get('orders/{type?}','OrderController@orders')->name('orders');
+    Route::post('toggledeliver/{orderId}', 'OrderController@toggledeliver')->name('toggle.deliver');
 });
 // address
 Route::resource('address','AddressController');
