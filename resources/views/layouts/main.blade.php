@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{asset('dist/css/app.css')}}"/>
     <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
 
+    @stack('css')
 
 </head>
 <body>
@@ -26,5 +27,8 @@
 
 <script src="{{asset('dist/js/vendor/jquery.js')}}"></script>
 <script src="{{asset('dist/js/app.js')}}"></script>
+
+@stack('js')
+
 </body>
 </html>
