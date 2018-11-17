@@ -112,4 +112,12 @@ return [
 
     'sendmail' => '/usr/sbin/sendmail -bs',
 
+    // laravel 5.4
+    'markdown' => [
+        'theme' => 'default',
+
+        'paths' => [
+            resource_path('views/vendor/mail'),
+        ],
+    ],
 ];
