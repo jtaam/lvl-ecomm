@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\OrderShipped;
 use App\Order;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -23,6 +26,9 @@ class OrderController extends Controller
     public function toggleDeliver(Request $request, $orderId){
         $order = Order::find($orderId);
         if ($request->has('delivered')){
+
+            Mail::to($order->user)->send(new OrderShipped($order));
+
             $order->delivered = $request->delivered;
         }else{
             $order->delivered = "0";
